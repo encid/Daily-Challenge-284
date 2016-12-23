@@ -7,7 +7,7 @@ using System.Net;
 namespace DailyChallenge284 {
     class Program {
 
-        public static List<string> wordList = GetListFromText(@"http://norvig.com/ngrams/enable1.txt");
+        readonly static List<string> wordList = GetListFromText(@"http://norvig.com/ngrams/enable1.txt");
 
         static void Main()
         {

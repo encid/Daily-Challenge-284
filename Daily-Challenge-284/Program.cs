@@ -8,10 +8,28 @@ namespace DailyChallenge284 {
     class Program {
 
         readonly static List<string> wordList = GetListFromText(@"http://norvig.com/ngrams/enable1.txt");
-        const string PATH = @"c:\enable1.txt";
 
         static void Main()
         {
+            /*
+            Software like Swype and SwiftKey lets smartphone users enter text by dragging their finger over 
+            the on-screen keyboard, rather than tapping on each letter.
+
+            You'll be given a string of characters representing the letters the user has dragged their finger over.
+            For example, if the user wants "rest", the string of input characters might be "resdft" or "resert".
+            
+            Given the following input strings, find all possible output words 5 characters or longer.
+
+            Input:
+            qwertyuytresdftyuioknn
+            gijakjthoijerjidsdfnokg
+            
+            Output:
+            queen question
+            gaeing garring gathering gating geeing gieing going goring
+            */
+          
+
             var watch = System.Diagnostics.Stopwatch.StartNew();
             Console.WriteLine(FindWords("qwertyutresdftyuioknn"));
             watch.Stop();

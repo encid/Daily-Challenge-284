@@ -8,11 +8,19 @@ namespace DailyChallenge284 {
     class Program {
 
         readonly static List<string> wordList = GetListFromText(@"http://norvig.com/ngrams/enable1.txt");
+        const string PATH = @"c:\enable1.txt";
 
         static void Main()
         {
-            Console.WriteLine(FindWords("qwertyuytresdftyuioknn"));
+            var watch = System.Diagnostics.Stopwatch.StartNew();
+            Console.WriteLine(FindWords("qwertyutresdftyuioknn"));
+            watch.Stop();
+            Console.WriteLine("Elapsed time: {0}ms", watch.ElapsedMilliseconds);
+
+            watch = System.Diagnostics.Stopwatch.StartNew();
             Console.WriteLine(FindWords("gijakjthoijerjidsdfnokg"));
+            watch.Stop();
+            Console.WriteLine("Elapsed time: {0}ms", watch.ElapsedMilliseconds);
 
             Console.ReadLine();
         }
@@ -35,8 +43,8 @@ namespace DailyChallenge284 {
             var textList = new List<string>();            
             var textFile = ReadTextLines(textURL);
 
-            foreach (var s in textFile) 
-                if (s.Length > 4) textList.Add(s);             
+            foreach (var s in textFile.Where(p => p.Length > 4))             
+                textList.Add(s);             
 
             return textList;
         }
@@ -82,7 +90,6 @@ namespace DailyChallenge284 {
 
         static string FindWords(string letters)
         {
-            var words = new List<string>();
             string result = "";
 
             foreach (var word in wordList) {
@@ -93,6 +100,5 @@ namespace DailyChallenge284 {
 
             return result;
         }
-
     }
 }

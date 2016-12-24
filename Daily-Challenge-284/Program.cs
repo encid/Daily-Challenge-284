@@ -69,7 +69,7 @@ namespace DailyChallenge284 {
 
         static bool CheckWord(string letters, string word)
         {
-            if (word[0] == letters[0] & word[word.Length - 1] == letters[letters.Length - 1]) {
+            if (word[0] == letters[0] && word[word.Length - 1] == letters[letters.Length - 1]) {
                 string temp = "";
                 string remainingLetters = letters;
 

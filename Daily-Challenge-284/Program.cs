@@ -79,9 +79,11 @@ namespace DailyChallenge284 {
                         remainingLetters = TrimLetters(remainingLetters, word[i]);
                     }
                 }
-                if (temp == word) {
+                if (temp == word)
+                {
                     return true;
                 }
+
                 return false;
             }
 
@@ -98,12 +100,7 @@ namespace DailyChallenge284 {
                     break;
                 }
             }
-
-            if (temp != letters) {
-                return temp;
-            }
-
-            return letters;
+            return temp;
         }
 
         static string FindWords(string letters)

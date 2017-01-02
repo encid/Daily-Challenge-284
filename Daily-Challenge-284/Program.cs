@@ -28,7 +28,6 @@ namespace DailyChallenge284 {
             queen question
             gaeing garring gathering gating geeing gieing going goring
             */
-          
 
             var watch = System.Diagnostics.Stopwatch.StartNew();
             Console.WriteLine(FindWords("qwertyutresdftyuioknn"));
@@ -71,12 +70,11 @@ namespace DailyChallenge284 {
         {
             if (word[0] == letters[0] && word[word.Length - 1] == letters[letters.Length - 1]) {
                 string temp = "";
-                string remainingLetters = letters;
 
                 for (int i = 0; i < word.Length; i++) {
-                    if (remainingLetters.Contains(word[i])) {
+                    if (letters.Contains(word[i])) {
                         temp += word[i];
-                        remainingLetters = TrimLetters(remainingLetters, word[i]);
+                        letters = letters.Remove(0, letters.IndexOf(word[i]));
                     }
                 }
                 if (temp == word)
@@ -88,19 +86,6 @@ namespace DailyChallenge284 {
             }
 
             return false;            
-        }
-
-        static string TrimLetters(string letters, char letter)
-        {
-            string temp = "";
-
-            for (int i = 0; i < letters.Length; i++) {
-                if (letters.IndexOf(letter) != -1) {
-                    temp = letters.Remove(0, letters.IndexOf(letter));
-                    break;
-                }
-            }
-            return temp;
         }
 
         static string FindWords(string letters)
